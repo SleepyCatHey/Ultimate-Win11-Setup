@@ -1,7 +1,6 @@
-watch_stylesheet: true
 watch_config: true
 debug: false
-update_check: true # Enable automatic update check.
+update_check: true
 glazewm:
   start_command: "glazewm.exe start"
   stop_command: "glazewm.exe command wm-exit"
@@ -32,13 +31,14 @@ bars:
       height: 26
     padding:
       top: 3
-      left: 3
+      left: 6
       bottom: 0
-      right: 3
+      right: 6
     widgets:
       left: [
         "glazewm_tiling_direction",
-        "glazewm_workspaces",      
+        "glazewm_workspaces",
+        "pomodoro",
         "active_window"
       ]
       center: [
@@ -47,22 +47,26 @@ bars:
       right: [
         "cava",
         "weather",
+        "microphone",
         "cpu",
         "memory",
-        "wallpapers"
-        ]
+        "wallpapers",
+        "power_menu"
+      ]
+
 widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[process][name]}"
-      label_alt: "{win[title]}"
+      label: "{win[title]}"
+      label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
       label_no_window: ""
       label_icon: true
       label_icon_size: 14
       max_length: 46
       max_length_ellipsis: "..."
       monitor_exclusive: true
+
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -70,16 +74,17 @@ widgets:
       label_alt: "{%I:%M:%S}"
       timezones: []
       callbacks:
-        on_left: ""
+        on_left: "toggle_calendar"
+
   weather:
     type: "yasb.weather.WeatherWidget"
     options:
       label: "<span>{icon}</span> {temp}"
       label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-      api_key:  # Get your free API key from https://www.weatherapi.com/
+      api_key: # Get your free API key from https://www.weatherapi.com/
       update_interval: 600
       hide_decimal: true
-      location:  # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
+      location: # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
       callbacks:
         on_left: "toggle_card"
       icons:
@@ -89,42 +94,56 @@ widgets:
         cloudyNight: "\ue311"
         rainyDay: "\ue308"
         rainyNight: "\ue333"
-        blizzardDay: "\udb83\udf36"
-        blizzardNight: "\udb83\udf36"
+        snowyDay: "\ue30a"
+        snowyNight: "\ue335"
         foggyDay: "\ue303"
         foggyNight: "\ue346"
         thunderstormDay: "\ue30f"
         thunderstormNight: "\ue338"
         default: "\uebaa"
       weather_card:
-        blur: True
-        round_corners: True
+        blur: true
+        round_corners: true
         round_corners_type: "normal"
         border_color: "System"
         alignment: "right"
         direction: "down"
         icon_size: 64
-        show_hourly_forecast: True # Set to False to disable hourly forecast
-        time_format: "12h" # can be 12h or 24h
+        show_hourly_forecast: true
+        time_format: "12h"
         hourly_point_spacing: 76
-        hourly_icon_size: 32 # better to set 16, 32 or 64 for better quality
-        icon_smoothing: true # should be true for smoother icon or false for sharper icon if using 16, 32 or 64 for hourly_icon_size
-        temp_line_width: 2 # can be 0 to hide the temperature line
+        hourly_icon_size: 32
+        icon_smoothing: true
+        temp_line_width: 2
         current_line_color: "#8EAEE8"
-        current_line_width: 1 # can be 0 to hide the current hour line
+        current_line_width: 1
         current_line_style: "dot"
       label_shadow:
         enabled: true
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]
+
+  microphone:
+    type: "yasb.microphone.MicrophoneWidget"
+    options:
+      label: "<span>{icon}</span> {level}"
+      label_alt: "<span>{icon}</span> {level}%"
+      icons:
+        normal: "\udb80\udf6c"
+        muted: "\udb80\udf6d"
+      callbacks:
+        on_left: "toggle_mute"
+        on_middle: "toggle_label"
+        on_right: "exec cmd.exe /c start ms-settings:sound"
+
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
       label: "\uf011"
-      uptime: True
-      blur: False
-      blur_background: True
+      uptime: true
+      blur: false
+      blur_background: true
       animation_duration: 200
       button_row: 5
       buttons:
@@ -133,27 +152,29 @@ widgets:
         signout: ["\udb80\udf43", "Dip Out"]
         hibernate: ["\uf28e", "Bear Mode"]
         sleep: ["\u23fe", "Nap Time"]
-        cancel: ["", "Nah, Im Good "]
+        cancel: ["", "Nah, Im Good"]
+
   wallpapers:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb80\udd1b</span>"
-      image_path:  # Example path to folder with images
-      change_automatically: false # Automatically change wallpaper
-      update_interval: 60 # If change_automatically is true, update interval in seconds
+      image_path: # Example path to folder with images
+      change_automatically: false
+      update_interval: 60
       gallery:
-          enabled: true
-          blur: true
-          image_width: 220
-          image_per_page: 8
-          show_buttons: false
-          orientation: "portrait"
-          image_spacing: 8
-          lazy_load: true
-          lazy_load_delay: 80
-          lazy_load_fadein: 400
-          image_corner_radius: 20
-          enable_cache: true
+        enabled: true
+        blur: true
+        image_width: 220
+        image_per_page: 8
+        show_buttons: true
+        orientation: "portrait"
+        image_spacing: 8
+        lazy_load: true
+        lazy_load_delay: 80
+        lazy_load_fadein: 400
+        image_corner_radius: 20
+        enable_cache: true
+
   cava:
     type: "yasb.cava.CavaWidget"
     options:
@@ -174,58 +195,106 @@ widgets:
         left: 8
         bottom: 0
         right: 8
+
   cpu:
-      type: "yasb.cpu.CpuWidget"
-      options:
-        label: "{info[percent][total]:.0f}%"
-        progress_bar:
-          enabled: true
-          position: "left"
-          size: 16
-          thickness: 3
-          color: "#89dceb"
-          background_color: "#1e1e2e"
-          animation: true 
-        animation:
-          enabled: true
-          type: FadeInOut
-          duration: 200
-        update_interval: 2000
-        callbacks:
-          on_right: "do_nothing"
-          on_left: "do_nothing"
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "{info[percent][total]:.0f}%"
+      progress_bar:
+        enabled: true
+        position: "left"
+        size: 16
+        thickness: 3
+        color: "#89dceb"
+        background_color: "#1e1e2e"
+        animation: true
+      animation:
+        enabled: true
+        type: FadeInOut
+        duration: 200
+      update_interval: 2000
+      callbacks:
+        on_right: "do_nothing"
+        on_left: "do_nothing"
+
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
-      # Offline behavior (matching komorebi's label_offline and hide_if_offline)
-      offline_label: "Hey Buddy, GlazeWM is Offline"
-      hide_if_offline: false
-      
-      # Workspace display labels (matching komorebi's label_workspace_btn and label_workspace_active_btn)
+      offline_label: "GlazeWM Offline"
+      hide_if_offline: true
       populated_label: "\udb85\udcfc"
       empty_label: "\udb85\udcfc"
       active_populated_label: "\udb85\udcfb"
       active_empty_label: "\udb85\udcfb"
-      
-      # Workspace management (matching komorebi's hide_empty_workspaces)
       hide_empty_workspaces: false
-      
-      # Server connection
       glazewm_server_uri: "ws://localhost:6123"
-      
-      # Additional GlazeWM-specific options (keeping defaults)
       enable_scroll_switching: true
       reverse_scroll_direction: true
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+
   glazewm_tiling_direction:
     type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
     options:
-      horizontal_label: "\ueb56"
-      vertical_label: "\ueb57"
+      horizontal_label: "\udb81\udce1"
+      vertical_label: "\udb81\udce2"
       btn_shadow:
         enabled: true
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]
+
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: true
+      sound_notification: true
+      show_notification: true
+      hide_on_break: false
+      session_target: 8
+      icons:
+        work: "\uf252"
+        break: "\uf253"
+        paused: "\uf254"
+      container_padding:
+        top: 0
+        left: 6
+        bottom: 0
+        right: 6
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        circle_background_color: "#09ffffff"
+        circle_work_progress_color: "#88c0d0"
+        circle_break_progress_color: "#a3be8c"
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+
   memory:
     type: "yasb.memory.MemoryWidget"
     options:
@@ -238,59 +307,14 @@ widgets:
         position: left
         color: "#cba6f7"
         background_color: "#1e1e2e"
-        animation: True
+        animation: true
       animation:
         enabled: true
         type: FadeInOut
-        duration: 200 
+        duration: 200
       callbacks:
         on_left: "do_nothing"
       memory_thresholds:
         low: 25
         medium: 50
         high: 90
-  komorebi_workspaces:
-    type: "komorebi.workspaces.WorkspaceWidget"
-    options:
-      label_offline: "\u23fc Offline"
-      label_workspace_btn: "\u000d"
-      label_workspace_active_btn: "\u000d"
-      label_workspace_populated_btn: "\u000d"
-      label_default_name: "{index}"
-      label_zero_index: false
-      hide_empty_workspaces: false
-      hide_if_offline: true
-      animation: true
-  komorebi_active_layout:
-    type: "komorebi.active_layout.ActiveLayoutWidget"
-    options:
-      hide_if_offline: false
-      label: "{icon}"
-      layouts:
-        [
-          "bsp",
-          "columns",
-          "rows",
-          "grid",
-          "vertical_stack",
-          "horizontal_stack",
-          "ultrawide_vertical_stack",
-          "right_main_vertical_stack",
-        ]
-      layout_icons:
-        bsp: "BSP"
-        columns: "COLS"
-        rows: "ROWS"
-        grid: "GRID"
-        vertical_stack: "V-STACK"
-        horizontal_stack: "H-STACK"
-        ultrawide_vertical_stack: "W-STACK"
-        right_main_vertical_stack: "RMV-STACK"
-        monocle: "MONOCLE"
-        maximized: "MAX"
-        floating: "FLOATING"
-        paused: "PAUSED"
-      callbacks:
-        on_left: "next_layout"
-        on_middle: "toggle_monocle"
-        on_right: "prev_layout"

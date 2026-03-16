@@ -28,7 +28,7 @@
 
 /* GLAZEWM WIDGET */
 .glazewm-workspaces {
-	margin: 0;
+    margin: 0;
 }
 .glazewm-workspaces .offline-status {
     color: rgb(205, 214, 244);
@@ -58,21 +58,20 @@
     border-radius: 5px;
 }
 
-
-
 .glazewm-tiling-direction {
     background-color: transparent;
     padding: 0;
     margin: 0;
-    border-radius: 6px;
 }
+
 .glazewm-tiling-direction .btn {
     font-size: 18px;
-    width: 24px;
+    width: 14px;
     padding: 0 4px 0 4px;
     color: #f9e2af;
-    border-radius: 4px;
-}   
+    border: none;
+}
+
 
 
 /*POWER MENU WIDGET*/
@@ -97,7 +96,6 @@
 	font-family: "JetBrainsMono NFP";
 	color: white;
 	border: 4px solid rgba(255, 255, 255, 0);
- 
 }
 .power-menu-popup .button.hover {
 	background-color: rgb(55, 56, 75);
@@ -116,23 +114,20 @@
 	color: rgba(255, 255, 255, 0.25);
 }
 .power-menu-popup .button.cancel {
-    height: 20px !important; /* Much thinner than the 240px of other buttons */
-    width: 100%; /* Full width to span across */
+    height: 20px !important;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 .power-menu-popup .button.cancel .icon {
-    font-size: 24px !important; /* Smaller icon for the thinner button */
-    padding-top: 0px !important; /* Remove the large top padding */
+    font-size: 24px !important;
+    padding-top: 0px !important;
     color: rgba(243, 139, 168, 0.55);
 }
-
 .power-menu-popup .button.cancel .label {
-    margin-bottom: 0px !important; /* Remove bottom margin */
+    margin-bottom: 0px !important;
     color: rgba(243, 139, 168, 0.95);
 }
-
 
 /* ICONS */
 .icon {
@@ -184,33 +179,92 @@
     border-radius: 8px;
     background-color:  rgba(17, 17, 27, 0.2);
 }
-
 .weather-card-day.active {
     background-color: rgba(40, 40, 60, 0.6);
     border: 1px solid rgba(50, 50, 75, 1);
 }
-
 .weather-card-day:hover {
     background-color: rgba(40, 40, 60, 0.6);
 }
-
 .weather-card-day .label {
     font-size: 12px;
 }
-
 .weather-card .hourly-container {
     border: 1px solid #282936;
     background-color: #3c5fa0;
     border-radius: 8px;
     min-height: 150px;
 }
-
 .weather-card .hourly-data {
     /* font-family: 'Segoe UI';*/
     /* color: cyan;*/ /* <- Font color */
     background-color: #FAE93F; /* <- Curve color */
     font-size: 12px;
     font-weight: bold;
+}
+
+/* POMODORO WIDGET */
+.pomodoro-widget {
+    padding: 0 0 0 0;
+}
+.pomodoro-widget .icon {
+    font-size: 12px;
+    padding-right: 4px;
+}
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+    color: #7d7e8b;
+}
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+    color: #a6e3a1;
+}
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+    color: #89b4fa;
+}
+/* Pomodoro menu styling */
+.pomodoro-menu {
+    background-color: rgba(17, 17, 27, 0.2);
+    border-radius: 8px;
+}
+.pomodoro-menu .header {
+    font-size: 16px;
+    font-weight: 600;
+    max-height: 0px;
+    color: #ffffff;
+}
+.pomodoro-menu .status {
+    font-size: 18px;
+    font-weight: 600;
+    color: #cdd6f4;
+}
+.pomodoro-menu .session {
+    font-size: 12px;
+    color: #a6adc8;
+}
+.pomodoro-menu .button {
+    background-color: #3f4053;
+    color: #cdd6f4;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+.pomodoro-menu .button.start {
+    background-color: #3f4053;
+}
+.pomodoro-menu .button.reset {
+    background-color: #3f4053;
+}
+.pomodoro-menu .button:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+}
+.pomodoro-menu .button.pause {
+    background-color: #a6e3a1;
+    color: #1e1e2e;
+}
+.pomodoro-menu .button:pressed {
+    background-color: #5a5b6e;
 }
 
 /* CALENDAR WIDGET */
@@ -265,32 +319,4 @@
     font-weight: 900;
     color: rgb(255, 255, 255);
     margin-top: -20px;
-}
-
-.komorebi-active-layout {
-    padding: 0
-}
-.komorebi-workspaces .offline-status {
-    color: #cdd6f4;
-    font-size: 12px;
-    padding: 0 0 0 4px;
-    font-weight: 600;
-}
-.komorebi-workspaces .ws-btn {
-    border: none;
-    background-color: #6c7086;
-    margin: 0 3px;
-    height: 9px;
-    width: 9px;
-    border-radius: 4px;
-}
-.komorebi-workspaces .ws-btn:hover {
-    color: #cdd6f4;
-}
-.komorebi-workspaces .ws-btn.populated {
-    background-color: #b4befe;
-}
-.komorebi-workspaces .ws-btn.active {
-    background-color: #89b4fa;
-    width: 36px;
 }
