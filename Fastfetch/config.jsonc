@@ -1,26 +1,21 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "$schema": "https://github.com",
   "logo": {
-    "type": "file",
-    "source": "C:/Users/%USERPROFILE%/.config/fastfetch/ascii.txt",
+    "type": "builtin",
+    "source": "windows11", 
     "color": {
-      "1": "#F5E0DC",
-      "2": "#F2CDCD",
-      "3": "#F5C2E7",
-      "4": "#FAB387",
-      "5": "#F9E2AF",
-      "6": "#A6E3A1",
-      "7": "#94E2D5",
-      "8": "#89DCEB",
-      "9": "#74C7EC"
+      "1": "#0078D4",
+      "2": "#0078D4",
+      "3": "#0078D4",
+      "4": "#0078D4"
     },
     "padding": {
-      "top": 1,
+      "top": 2,
       "right": 3
     }
   },
   "display": {
-    "separator": " "
+    "separator": "  "
   },
   "modules": [
     "break",
@@ -33,36 +28,22 @@
       }
     },
     "break",
-    {
-      "type": "os",
-      "key": "",
-      "keyColor": "#89DCEB"
-    },
-    {
-      "type": "cpu",
-      "key": "",
-      "keyColor": "#F5C2E7"
-    },
-    {
-      "type": "board",
-      "key": "󰚗",
-      "keyColor": "#FAB387"
-    },
-    {
-      "type": "memory",
-      "key": "",
-      "keyColor": "#A6E3A1",
-      "format": "{used} / {total} ({percentage})"
-    },
-    {
-      "type": "disk",
-      "key": "",
-      "keyColor": "#94E2D5"
-    },
+    { "type": "os", "key": "", "keyColor": "#89DCEB" },
+    { "type": "kernel", "key": "", "keyColor": "#94E2D5" },
+    { "type": "uptime", "key": "  ", "keyColor": "#A6E3A1" },
+    { "type": "shell", "key": "", "keyColor": "#89DCEB" },
+    { "type": "display", "key": "  ", "keyColor": "#FAB387" },
     "break",
+    { "type": "cpu", "key": "", "keyColor": "#F5C2E7" },
+    { "type": "gpu", "key": "  ", "keyColor": "#FAB387" },
+    { "type": "memory", "key": "", "keyColor": "#A6E3A1", "format": "{used} / {total} ({percentage})" },
+    { "type": "disk", "key": "", "keyColor": "#94E2D5" },
+    { "type": "battery", "key": "  ", "keyColor": "#A6E3A1" },
+    "break",
+    { "type": "colors", "symbol": "circle" },
     {
-      "type": "colors",
-      "symbol": "circle"
+      "type": "custom",
+      "format": "\n" 
     }
   ]
 }
