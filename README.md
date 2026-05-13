@@ -46,7 +46,7 @@ Other
 
 ## 📏 YASB
 > [!NOTE] 
-> Some stuff in my config might not work if you just copy and paste it. Be sure to app your api for the weather widget to work and your wallpaper folder location for the wallpapers widget
+> Some stuff in my config might not work if you just copy and paste it. Be sure to add your api for the weather widget to work and your wallpaper folder location for the wallpapers widget
 
 A highly configurable Windows status bar written in Python. 
 
@@ -106,7 +106,7 @@ Installation guide was taken from [**here**](https://github.com/catppuccin/flow-
 
 ## 📁 ExplorerBlurMica
 > [!NOTE] 
-> A few people had said that they are getting bugs and crashes by using this, so I recommend to now use it and follow the windhawk method **here** (video will be added soon)
+> A few people had said that they are getting bugs and crashes by using this, so I recommend to not use it and follow the windhawk method **here** (video will be added soon)
 
 Add background Blur effect or Acrylic or Mica effect to explorer for win10 and win11
 
