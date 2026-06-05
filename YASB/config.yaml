@@ -13,7 +13,7 @@ bars:
     class_name: "yasb-bar"
     alignment:
       position: "top"
-      center: false
+      center: true
     animation:
       enabled: true
       duration: 1000
@@ -21,7 +21,7 @@ bars:
       enabled: true
       acrylic: true
       dark_mode: true
-      round_corners: true
+      round_corners: false
       round_corners_type: "normal"
       border_color: "#8dbcff"
     window_flags:
@@ -29,22 +29,25 @@ bars:
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 26
+      height: 28
     padding:
-      top: 3
-      left: 3
+      top: 0
+      left: 0
       bottom: 0
-      right: 3
+      right: 0
     widgets:
       left: [
         "glazewm_tiling_direction",
-        "glazewm_workspaces",      
+        "glazewm_workspaces",
+        "komorebi_active_layout",
+        "komorebi_workspaces", 
         "active_window"
       ]
       center: [
         "clock"
       ]
       right: [
+        "media",
         "cava",
         "weather",
         "cpu",
@@ -138,22 +141,28 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb80\udd1b</span>"
-      image_path:  # Example path to folder with images
+      image_path:
+       -  # Example path to folder with images 
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
+      keybindings:
+      - keys: "alt+w"
+        action: "toggle_gallery"
+      engine:
+        enabled: true
+        animation: "diamond" # circle/slide_top/diamond/split
       gallery:
           enabled: true
-          blur: true
+          blur: false
           image_width: 220
           image_per_page: 8
           show_buttons: false
           orientation: "portrait"
           image_spacing: 8
           lazy_load: true
-          lazy_load_delay: 80
           lazy_load_fadein: 400
-          image_corner_radius: 20
-          enable_cache: true
+          image_corner_radius: 1
+          enable_cache: false
   cava:
     type: "yasb.cava.CavaWidget"
     options:
@@ -181,7 +190,7 @@ widgets:
         progress_bar:
           enabled: true
           position: "left"
-          size: 16
+          size: 17
           thickness: 3
           color: "#89dceb"
           background_color: "#1e1e2e"
@@ -192,28 +201,19 @@ widgets:
           duration: 200
         update_interval: 2000
         callbacks:
-          on_right: "do_nothing"
-          on_left: "do_nothing"
+          on_right: "toggle_menu"
+          on_left: "toggle_menu"
+        menu:
+          enabled: true
+          show_graph: true
+          show_graph_grid: true
+          graph_history_size: 60
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
-      # Offline behavior (matching komorebi's label_offline and hide_if_offline)
-      offline_label: "Hey Buddy, GlazeWM is Offline"
-      hide_if_offline: false
-      
-      # Workspace display labels (matching komorebi's label_workspace_btn and label_workspace_active_btn)
-      populated_label: "\udb85\udcfc"
-      empty_label: "\udb85\udcfc"
-      active_populated_label: "\udb85\udcfb"
-      active_empty_label: "\udb85\udcfb"
-      
-      # Workspace management (matching komorebi's hide_empty_workspaces)
+      offline_label: "GlazeWM is offline dude"
       hide_empty_workspaces: false
-      
-      # Server connection
-      glazewm_server_uri: "ws://localhost:6123"
-      
-      # Additional GlazeWM-specific options (keeping defaults)
+      hide_if_offline: false
       enable_scroll_switching: true
       reverse_scroll_direction: true
   glazewm_tiling_direction:
@@ -233,7 +233,7 @@ widgets:
       update_interval: 5000
       progress_bar:
         enabled: true
-        size: 16
+        size: 17
         thickness: 3
         position: left
         color: "#cba6f7"
@@ -244,11 +244,17 @@ widgets:
         type: FadeInOut
         duration: 200 
       callbacks:
-        on_left: "do_nothing"
+        on_left: "toggle_menu"
+        on_right: "toggle_menu"
       memory_thresholds:
         low: 25
         medium: 50
         high: 90
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -294,3 +300,57 @@ widgets:
         on_left: "next_layout"
         on_middle: "toggle_monocle"
         on_right: "prev_layout"
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}"
+      label_alt: "{title}"
+      separator: " - "
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+      max_field_size:
+        label: 30
+        label_alt: 30
+      show_thumbnail: false
+      controls_only: false
+      controls_left: true
+      controls_hide: false
+      thumbnail_alpha: 80
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 16
+      icons:
+        prev_track: " "
+        next_track: " "
+        play: "\udb81\udf5b"
+        pause: "\uf001"
+      media_menu:
+        blur: true
+        round_corners: false
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 0
+        thumbnail_size: 96
+        max_title_size: 60
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 33
+        style: "left"  # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 0
+        always_scroll: false
+        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
