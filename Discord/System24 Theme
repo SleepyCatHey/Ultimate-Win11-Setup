@@ -14,14 +14,41 @@
 @import url('https://refact0r.github.io/system24/build/system24.css');
 
 @font-face {
-  font-family: "JetBrainsMono Nerd Font Mono v3.3.0";
-  src: url('https://raw.githubusercontent.com/ryanoasis/nerd-fonts/refs/tags/v3.3.0/patched-fonts/JetBrainsMono/Ligatures/Thin/JetBrainsMonoNerdFontMono-Thin.ttf') format('truetype');
+  font-family: "Monocraft";
+  src: url('https://github.com/IdreesInc/Monocraft/releases/download/v4.2.1/Monocraft-nerd-fonts-patched.ttc') format('truetype');
+}
+
+body {
+    /* ... rest of your options ... */
+    --round-users-profiles: on;
+}
+
+@property --round-users-profiles {
+    syntax: 'off | on';
+    inherits: false;
+    initial-value: off;
+}
+
+@container body style(--round-users-profiles: on) {
+    .avatar_c19a55, .avatar__44b0c {
+        border-radius: 100% !important;
+    }
+
+    .wrapper__44b0c {
+        /* fix something weird with a background color behind the user profile that looked ugly */
+        background-color: transparent !important;
+    }
+
+    .avatarDecorationContainer__44b0c foreignObject {
+        /* fix for a weird mask on the user profile page for user decoration */
+        mask: none;
+    }
 }
 
 body {
     /* font, change to '' for default discord font */
-    --font: 'JetBrainsMono Nerd Font Mono v3.3.0'; /* change to '' for default discord font */
-    --code-font: 'JetBrainsMono Nerd Font Mono v3.3.0'; /* change to '' for default discord font */
+    --font: 'Monocraft'; /* change to '' for default discord font */
+    --code-font: 'Monocraft'; /* change to '' for default discord font */
     font-weight: 800; /* text font weight. 300 is light, 400 is normal. DOES NOT AFFECT BOLD TEXT */
     letter-spacing: -0.05ch; /* decreases letter spacing for better readability. recommended on monospace fonts.*/
 
@@ -67,7 +94,7 @@ body {
     --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: on; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
-    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+    /* --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
     /* other options */
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
