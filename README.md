@@ -1,43 +1,52 @@
-<h1 align="center">⚠️ UNDER CONSTRUCTION ⚠️</h1>
-<h3 align="center">✨ My Windows 11 Setup ✨</h3>
+<h1 align="center">✨ My Windows 11 Setup ✨</h1>
+
+<div align="center">
+  <img src="Screenshots/Screenshot 2026-09-29 185641.png" alt="fastfetch" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="Screenshots/Screenshot 2026-09-29 185921.png" alt="btop and cava" width="49%"/>
+  <img src="Screenshots/Screenshot 2026-09-29 190344.png" alt="yazi" width="49%"/>
+</div>
+
+<div align="center">
+  <img src="Screenshots/Screenshot 2026-09-29 190528.png" alt="flow launcher" width="49%"/>
+  <img src="Screenshots/Screenshot 2026-09-29 190550.png" alt="wallpaper" width="49%"/>
+</div>
 
 <p align="center">
-A complete guide to my Windows 11 customization – from the YASB bar to all the little tweaks that make it clean, aesthetic, and productive.
+A complete guide to my Windows 11 customization.
+From the YASB bar to all the little tweaks that make it clean and productive.
 </p>
-
----
-
-## 🖼️ Screenshot
-![My Desktop Screenshot](screenshot.png)  _I will add this later, dw._
 
 ---
 
 ## 📑 Table of Contents
 
-| 📚 Entry | ✨ App |
+| 📚 Name | ✨ Source |
 |---------------------|------------|
-| Status Bar          | [YASB](#yasb) |
-| Window Manager      | [GlazeWM](#glazewm) |
-| App Launcher        | [Flow Launcher](#flowlauncher) |
-| Taskbar             | [Windhawk](#windhawk) |
-| Text Editor         | [VSCode](#vscode) |
-| Terminal            | [Windows Terminal](#windows-terminal) |
-| Browser             | [Brave](#brave) |
-| System Fetch        | [Fastfetch](#Fastfetch) |   
-| Shell Prompt        | [Oh My Posh](#ohmyposh) |
-| Audio Visualizer    | [Cava](#cava) |
-| Music Player        | [Spotify](#spotify) | 
-| Note Taking         | [Notesnook](#notesnook) |
-| Screen Recording    | [OBS Studio](#obsstudio) |
-| File Explorer Mod   | [ExplorerBlurMica](#ExplorerBlurMica) |
-| Other Tools         | [Extras](#extras) |
+| Status Bar          | [YASB](https://github.com/amnweb/yasb) |
+| Window Manager      | [GlazeWM](https://github.com/glzr-io/glazewm) |
+| App Launcher        | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher) |
+| Taskbar             | [Windhawk](https://github.com/ramensoftware/windhawk) |
+| Text Editor         | [VSCode](https://github.com/microsoft/vscode) |
+| Terminal            | [Windows Terminal](https://github.com/microsoft/terminal) |
+| Browser             | [Helium](https://github.com/imputnet/helium) |
+| System Fetch        | [Fastfetch](https://github.com/fastfetch-cli/fastfetch) |   
+| Shell Prompt        | [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh) |
+| Audio Visualizer    | [Cava](https://github.com/karlstav/cava) |
+| Music Player        | [Spicetify](https://github.com/spicetify/cli) | 
+| Note Taking         | [LunaTask](https://lunatask.app/) and [Obsidian](https://obsidian.md) |
+| Screen Recording    | [OBS Studio](https://github.com/obsproject/obs-studio) |
+| File Explorer Mod   | [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica) |
 
 Other
 
-| 📚 Entry | ✨ App |
+| 📚 Name | ✨ Source |
 |---------------------|------------|
 | Colorscheme         | [Catppuccin Mocha](https://catppuccin.com) |
-| Font                | [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip) |
+| Wallpaper           | [CozyPixels](https://github.com/SleepyCatHey/CozyPixels) (its my personal wallpaper repo) |
+| Fonts               | [JetbrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip) and [Monocraft](https://github.com/IdreesInc/Monocraft) |
 
 
 ---
@@ -51,7 +60,7 @@ Other
 A highly configurable Windows status bar written in Python. 
 
 **⚙️ Installation:**  
-You can follow the steps below, or jump to the [**setup video**](https://www.youtube.com/watch?v=your-video-id).
+You can follow the steps below, or jump to the [**setup video**](https://www.youtube.com/watch?v=YVCK3z-eLvk).
 - Install [**YASB**]([(https://github.com/amnweb/yasb)])   
 - Copy the config files from [**here**](https://github.com/SleepyCatHey/Ultimate-Win11-Setup/tree/main/YASB).
 - Remove the codes from **your** YASB config and paste the one you just copied.
@@ -162,36 +171,45 @@ You can follow the steps below, or jump to the [setup video](https://www.youtube
 
 ---
 
-## 🪟 AppName
+## 🪟 Komorebi
 > [!NOTE] 
-> This setup is compatible with the latest version of **AppName**.
+> I didn't used Komorebi much as I was often using GlazeWM, so the config might be a bit broken or wont work well with other apps.
 
-A short description about what the app/config does and why you’re using it.  
-(Example: Minimal tiling window manager setup with custom keybindings and themes.)
+It's a window manager similar to GlazeWM but it has animations and gets updates regularly. (btw its a bit hard for new users to get into it)
 
 **⚙️ Installation:**  
-You can follow the steps below, or jump to the [setup video](https://www.youtube.com/watch?v=your-video-id).
-- Install [**AppName**](https://appname-website.com/download)   
-- Copy the config file:  
-  `windots/.config/appname/config.file → %USERPROFILE%\.config\appname\config.file`  
-- Restart **AppName** for the changes to take effect
+You can follow the steps below, or jump to the [setup video](https://www.youtube.com/watch?v=QTFK_r3iwcw).
+- Install [**Komorebi**](https://lgug2z.github.io/komorebi/installation.html#installation) from here and follow the instructions there.
+- Copy the config file from [here](https://github.com/SleepyCatHey/Ultimate-Win11-Setup/tree/main/Komorebi).
 
 ---
 
-### Arc Browser
-Browser for work + aesthetic flow.  
-**Features:**
-- Minimal UI  
-- Vertical tabs  
-- Productivity features  
+## 🎵 Cava
+> [!NOTE] 
+> Make sure you got visual studio code and c/c++ installed.
+
+Just a music visualizer if your into these.
+
+**⚙️ Installation:**  
+Just follow the steps [here](https://www.youtube.com/watch?v=Ehnj5fzWegY).
 
 ---
 
-### Extras
-Other little tools & tweaks I use.  
-- [Wallpaper Engine](#)  
-- [AutoHotKey Scripts](#)  
-- [RoundedTB](#)  
+<h1 align="center"> Okay I'm too lazy to do this for all now so lemme do it quick! </h1>
 
 ---
+
+## Heres the every other apps I got and they all got a video tutorial so just follow those
+they are up to date as i haven't changed anything _yet_
+
+- [Discord](https://www.youtube.com/watch?v=0HAdyTTaM98). The font is now charged to Monocraft, but you can switch to any font you want.
+- [Helium Browser](https://www.youtube.com/watch?v=MgCbn-bvBUA).
+- [Momoisay](https://www.youtube.com/watch?v=FgeMIz8Kzio). You need WSL which I had also shown.
+- [Spotify](https://www.youtube.com/watch?v=BIhVmIMgzzU). 
+- [All the CLI apps I use](https://www.youtube.com/watch?v=6vuEzC3FfdY). Skip the sponsored part by using the timestamps I had included :)
+- [Obsidian](https://www.youtube.com/watch?v=uc_xsXnaHsw).
+
+### I think thats all i had.
+
+--- 
 
