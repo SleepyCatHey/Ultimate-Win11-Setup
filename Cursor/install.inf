@@ -1,0 +1,75 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg,Wreg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%working%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%precision%,%10%\%CUR_DIR%\%text%,%10%\%CUR_DIR%\%hand%,%10%\%CUR_DIR%\%unavailable%,%10%\%CUR_DIR%\%vert%,%10%\%CUR_DIR%\%horz%,%10%\%CUR_DIR%\%dgn1%,%10%\%CUR_DIR%\%dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%,%10%\%CUR_DIR%\%pin%,%10%\%CUR_DIR%\%person%"
+
+[Wreg]
+HKCU,"Control Panel\Cursors",,0x00020000,"%SCHEME_NAME%"
+HKCU,"Control Panel\Cursors",AppStarting,0x00020000,"%10%\%CUR_DIR%\%working%"
+HKCU,"Control Panel\Cursors",Arrow,0x00020000,"%10%\%CUR_DIR%\%pointer%"
+HKCU,"Control Panel\Cursors",crosshair,0x00020000,"%10%\%CUR_DIR%\%precision%"
+HKCU,"Control Panel\Cursors",precisionhair,0x00020000,"%10%\%CUR_DIR%\%precision%"
+HKCU,"Control Panel\Cursors",Hand,0x00020000,"%10%\%CUR_DIR%\%link%"
+HKCU,"Control Panel\Cursors",Help,0x00020000,"%10%\%CUR_DIR%\%help%"
+HKCU,"Control Panel\Cursors",IBeam,0x00020000,"%10%\%CUR_DIR%\%text%"
+HKCU,"Control Panel\Cursors",No,0x00020000,"%10%\%CUR_DIR%\%unavailable%"
+HKCU,"Control Panel\Cursors",NWPen,0x00020000,"%10%\%CUR_DIR%\%hand%"
+HKCU,"Control Panel\Cursors",SizeAll,0x00020000,"%10%\%CUR_DIR%\%move%"
+HKCU,"Control Panel\Cursors",SizeNESW,0x00020000,"%10%\%CUR_DIR%\%dgn2%"
+HKCU,"Control Panel\Cursors",SizeNS,0x00020000,"%10%\%CUR_DIR%\%vert%"
+HKCU,"Control Panel\Cursors",SizeNWSE,0x00020000,"%10%\%CUR_DIR%\%dgn1%"
+HKCU,"Control Panel\Cursors",SizeWE,0x00020000,"%10%\%CUR_DIR%\%horz%"
+HKCU,"Control Panel\Cursors",UpArrow,0x00020000,"%10%\%CUR_DIR%\%alternate%"
+HKCU,"Control Panel\Cursors",Wait,0x00020000,"%10%\%CUR_DIR%\%busy%"
+HKCU,"Control Panel\Cursors",Person,0x00020000,"%10%\%CUR_DIR%\%person%"
+HKCU,"Control Panel\Cursors",Pin,0x00020000,"%10%\%CUR_DIR%\%pin%"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce\Setup\","",,"rundll32.exe shell32.dll,Control_RunDLL main.cpl @0,1"
+
+[Scheme.Cur]
+"Normal.ani"
+"Help.ani"
+"Working.ani"
+"Busy.ani"
+"Precision.ani"
+"Text.ani"
+"Handwriting.ani"
+"Unavailable.ani"
+"Vertical.ani"
+"Horizontal.ani"
+"Diagonal1.ani"
+"Diagonal2.ani"
+"Move.ani"
+"Alternate.ani"
+"Link.ani"
+"Person.ani"
+"Pin.ani"
+
+[Strings]
+CUR_DIR         = "Cursors\Arlecchino_by BLZ"
+SCHEME_NAME     = "Arlecchino_by BLZ VSThemesORG"
+pointer		= "Normal.ani"
+help		= "Help.ani"
+working		= "Working.ani"
+busy		= "Busy.ani"
+precision		= "Precision.ani"
+text		= "Text.ani"
+hand		= "Handwriting.ani"
+unavailable	= "Unavailable.ani"
+vert		= "Vertical.ani"
+horz		= "Horizontal.ani"
+dgn1		= "Diagonal1.ani"
+dgn2		= "Diagonal2.ani"
+move		= "Move.ani"
+alternate	= "Alternate.ani"
+link		= "Link.ani"
+person      = "Person.ani"
+pin         = "Pin.ani"
