@@ -35,7 +35,7 @@
     "editor.quickSuggestions": {
         "comments": "on",
         "strings": "inline"
-    ],
+    },
     "workbench.activityBar.location": "top",
     "workbench.sideBar.location": "right",
     "window.menuBarVisibility": "compact",
@@ -43,6 +43,6 @@
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "vscode-pets.theme": "forest",
-    "settingsSync.ignoredSettings": [],
+    "settingsSync.ignoredSettings": []
 }
 
