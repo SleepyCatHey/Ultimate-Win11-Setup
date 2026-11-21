@@ -1,7 +1,7 @@
 watch_stylesheet: true
 watch_config: true
 debug: false
-update_check: true # Enable automatic update check.
+update_check: false # Enable automatic update check.
 glazewm:
   start_command: "glazewm.exe start"
   stop_command: "glazewm.exe command wm-exit"
@@ -94,11 +94,9 @@ widgets:
         direction: "down"
         offset_top: 6
         offset_left: 0
-        show_holidays: true
+        show_holidays: false
         show_week_numbers: true
         show_years: true
-        country_code: "BD"
-        holiday_color: "#FF6464"
         extended: false
       callbacks:
         on_left: toggle_calendar
@@ -172,7 +170,7 @@ widgets:
       label: "<span>\udb80\udd1b</span>"
       image_path:
        - 
-       # add your wallpaper path here. example: "C:\\Users\\User\\Pictures\\Wallpapers"
+       # - "C:\\Users\\USERNAME\\OneDrive\\画像\\Saved Pictures\\Wallpapers\\cosmic_princess_kaguya_wallpaper\\cosmic_princess_kaguya_wallpaper"
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
       keybindings:

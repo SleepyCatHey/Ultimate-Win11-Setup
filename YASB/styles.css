@@ -51,10 +51,10 @@
 
     /* --- FONTS --- */
     /* Change these to change the font for specific elements */
-    --font-main: "Monocraft";          /* General text, weather, calendar */
-    --font-mono: "JetBrainsMono NFP";  /* Icons, power menu, systray */
-    --font-icons: "Segoe Fluent Icons"; /* Control center icons */
-    --font-system: "Segoe UI Variable", "Segoe UI"; /* Context menus */
+    --font-main: "JetBrainsMono NFP";                               /* General text, weather, calendar */
+    --font-mono: "JetBrainsMono NFP";                               /* Icons, power menu, systray */
+    --font-icons: "Segoe Fluent Icons";                             /* Control center icons */
+    --font-system: "Segoe UI Variable", "Segoe UI";                 /* Context menus */
 
     /* --- FONT SIZES --- */
     /* Change these to resize text globally */
